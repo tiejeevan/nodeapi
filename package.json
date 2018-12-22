@@ -1,0 +1,22 @@
+{
+  "name": "admin_panel",
+  "version": "1.0.1",
+  "description": "fuck you",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiejeevan/nodeapi.git"
+  },
+  "author": "jeevan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiejeevan/nodeapi/issues"
+  },
+  "homepage": "https://github.com/tiejeevan/nodeapi#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
