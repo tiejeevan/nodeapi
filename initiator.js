@@ -9,33 +9,30 @@ const dbName = 'company';
 var initiator={
 
 
-    getMongoConnection:async(req,res,next)=>{
-        
-        let connection = await promiseofmongodb(req,res,next);
-        req["mongo"] = connection;
-        next();
+    getMongoConnection:()=>{
 
-    },
-    promiseofmongodb:(req,res,next)=>{
+        return(req,res,next)=>{
+
+            MongoClient.connect(url, function(err, client) {
         
-            return new promise((resolve,reject)=>{
+                assert.equal(null, err);
+            
+                console.log("Connected successfully to server");
+              
+                const db = client.db(dbName);
+              
+                console.log(client);
+  
+                req.mongo = {};
+
+                req["mongo"] = client;
         
-                MongoClient.connect(url, function(err, client) {
-        
-                    assert.equal(null, err);
-                
-                    console.log("Connected successfully to server");
-                  
-                    const db = client.db(dbName);
-                  
-                    console.log(client);
-        
-                    resolve(client);
-                   
-                  });
-            });
-        
+                next();
+               
+              });
         }
+        
+    },
         
 }
 
